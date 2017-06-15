@@ -1,17 +1,32 @@
 // var mongoose = require('mongoose')
 const m_article = require('../models/article')
-
+const m_user = require('../models/user')
 var create = function( req, res ) {
-  var artilce = new m_article({
-    title: req.body.title,
-    content: req.body.content,
-    category: req.body.category,
-    author: req.body.author
-  })
-  artilce.save(function(err, result) {
-    if (err) res.send(err)
-    else res.send(result)
-  })
+  if(req.body.user) {
+    let id = req.body.user
+    console.log('id ', id);
+    m_user.findById(id, function(err, dataUser) {
+      if (!err) {
+        console.log('data user ', dataUser.user);
+        var artilce = new m_article({
+          title: req.body.title,
+          content: req.body.content,
+          category: req.body.category,
+          author: req.body.user
+          // author: dataUser.user
+        })
+        artilce.save(function(err, result) {
+          if (err) res.send(err)
+          else res.send(result)
+        })
+      } else {
+        res.send(err)
+      }
+    })
+  } else {
+    console.log('login pls');
+  }
+
 }
 
 var getAll = function(req, res) {

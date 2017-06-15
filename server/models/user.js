@@ -3,8 +3,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
   user: {
-      type: String,
-      required: [true, 'Fill the title please!']
+      type: String
   },
   password: {
     type: String,

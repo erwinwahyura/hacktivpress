@@ -45,7 +45,7 @@ var signin = function(req, res, next) {
 var userInfo = function(req, res, next) {
   let token = req.body.token
   if(token) {
-    jwt.verify(token, 'thisismysecretbutiopenittoallogyoucheckidotgan', (err, decoded) => {
+    jwt.verify(token, 'thisismysecretbutiopenittoallogyoucheckidotgan!!', (err, decoded) => {
       if(!err) {
         console.log(decoded);
         req.body.user = decoded.id;
@@ -61,5 +61,6 @@ var userInfo = function(req, res, next) {
 
 module.exports = {
   signup,
-  signin
+  signin,
+  userInfo
 }
