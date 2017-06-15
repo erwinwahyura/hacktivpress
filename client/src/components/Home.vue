@@ -28,6 +28,28 @@
 
 <script>
 export default {
+  data () {
+    return {
+      articles: []
+    }
+  },
+  methods () {
+    getArticle: function() {
+      this.axios.get('http://localhost:3000/articles', {
+        headers: {
+          'token': localStorage.getItem('token')
+        }
+      })
+      .then(function(response) {
+        this.articles = response.data
+        console.log(JSON.stringify(response.data));
+
+      })
+      .catch(function(err) {
+        console.log(err);
+      })
+    }
+  }
 }
 </script>
 

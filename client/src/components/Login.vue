@@ -69,6 +69,7 @@ export default {
           localStorage.setItem('token', token)
           localStorage.setItem('user', response.data.user)
           this.$router.push('/')
+          location.reload()
         }
       })
       .catch(err => {

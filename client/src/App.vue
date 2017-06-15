@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Navbar></Navbar>
-    <img src="./assets/logo.png">
-    <router-view></router-view>
+    <Navbar :nilailogin="islogin"></Navbar>
+    <br><br>
+    <router-view :nilailogin="islogin"></router-view>
   </div>
 </template>
 

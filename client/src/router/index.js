@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-
+import AddArticle from '@/components/AddArticle'
 Vue.use(Router)
 
 export default new Router({
@@ -22,6 +22,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/add',
+      name: 'AddArticle',
+      component: AddArticle
     }
   ]
 })

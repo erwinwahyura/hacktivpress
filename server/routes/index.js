@@ -11,7 +11,7 @@ router.post('/users/signup', c_user.signup)
 router.post('/users/signin', c_user.signin)
 
 router.get('/articles', c_article.getAll) // done
-router.post('/articles', c_user.userInfo, c_article.create) // done
+router.post('/articles',  c_article.create) // done
 router.get('/articles/:_id', c_article.getById) // done
 router.put('/articles/:_id', c_user.userInfo, c_article.edit)
 router.delete('/articles/:_id', c_user.userInfo, c_article.remove)
