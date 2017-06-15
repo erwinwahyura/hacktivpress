@@ -3,7 +3,7 @@ const m_article = require('../models/article')
 
 var create = function( req, res ) {
   var artilce = new m_article({
-    title: req.body.artilce,
+    title: req.body.title,
     content: req.body.content,
     category: req.body.category,
     author: req.body.author
@@ -56,7 +56,7 @@ var remove = function(req, res) {
 var edit = function(req, res) {
   let id = req.params._id
   m_article.findById({_id:id}, function(err, data) {
-    m_article.findOneAndUpdate({_id:id}, {$set: {title:req.body.title || data.title, content: req.body.title || data.content, category:req.body.category || data.category}}, function(err, result) {
+    m_article.findOneAndUpdate({_id:id}, {$set: {title:req.body.title || data.title, content: req.body.content || data.content, category:req.body.category || data.category}}, function(err, result) {
       if(err) res.send(err)
       else res.send(result)
     })
