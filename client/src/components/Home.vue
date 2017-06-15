@@ -1,8 +1,8 @@
 <template lang="html">
   <div id="app">
-    <div class="container">
+    <div class="container" v-for="article in articles">
     	<div class="span8">
-            <h1>Article name first</h1>
+            <h1>{{ article.title }}</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam dictum ex eget porttitor sollicitudin. Morbi cursus tempor placerat. Pellentesque suscipit tortor in orci pretium, ac facilisis ex pretium. Fusce hendrerit orci diam, vitae tristique quam porttitor eu. Donec ligula orci, ultricies in sagittis non, porta sed lorem. Aenean interdum posuere mattis. Curabitur dignissim dictum quam, vitae malesuada velit tristique a. </p>
             <div>
                 <div class="more label"><a href="#">Read more</a></div>
@@ -33,20 +33,19 @@ export default {
       articles: []
     }
   },
-  methods () {
-    getArticle: function() {
+  methods: {
+    getArticle () {
       this.axios.get('http://localhost:3000/articles', {
         headers: {
-          'token': localStorage.getItem('token')
+          token: localStorage.getItem('token')
         }
       })
-      .then(function(response) {
+      .then(function (response) {
         this.articles = response.data
-        console.log(JSON.stringify(response.data));
-
+        console.log(JSON.stringify(response.data))
       })
-      .catch(function(err) {
-        console.log(err);
+      .catch(function (err) {
+        console.log(err)
       })
     }
   }
