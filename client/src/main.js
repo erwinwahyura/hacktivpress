@@ -5,7 +5,10 @@ import App from './App'
 import router from './router'
 import boostrapvue from 'bootstrap-vue'
 Vue.config.productionTip = false
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
+Vue.use(VueAxios, axios)
 Vue.use(boostrapvue)
 /* eslint-disable no-new */
 new Vue({

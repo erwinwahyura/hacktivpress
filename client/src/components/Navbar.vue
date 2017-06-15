@@ -33,8 +33,7 @@
               <span style="font-weight: bold;">User</span>
             </template>
 
-            <b-dropdown-item to="#">Profile</b-dropdown-item>
-            <b-dropdown-item to="#">Signout</b-dropdown-item>
+            <b-dropdown-item to="/auth">Sign In</b-dropdown-item>
           </b-nav-item-dropdown>
 
         </b-nav>
@@ -44,7 +43,11 @@
 </template>
 
 <script>
+import Login from '@/components/Login'
 export default {
+  components: {
+    Login
+  }
 }
 </script>
 

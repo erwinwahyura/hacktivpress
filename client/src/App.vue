@@ -12,7 +12,20 @@ export default {
   components: {
     Navbar
   },
-  name: 'app'
+  name: 'app',
+  data () {
+    return {
+      islogin: false
+    }
+  },
+  created () {
+    if (localStorage.getItem('token') !== null) {
+      this.islogin = true
+    } else {
+      this.islogin = false
+      this.$router.push('/login')
+    }
+  }
 }
 </script>
 
